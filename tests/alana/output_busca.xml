@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T11:17:38.951801" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Busca Medicamento" source="/Users/alanagabriela/Downloads/files (1)/teste_busca_medicamento.robot">
+<kw name="Abrir Navegador na Tela de Busca" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:39.686165" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/index.html'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T11:17:39.685865" elapsed="3.205627"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T11:17:42.896506" elapsed="0.385922"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:43.294426" level="INFO">Page title is 'Med Info — Consulta de Medicamentos'.</msg>
+<arg>Med Info — Consulta de Medicamentos</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.282737" elapsed="0.011872"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:39.684965" elapsed="3.609861"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve exibir resultados ao buscar por nome existente" line="23">
+<kw name="Dado que o usuário seleciona o tipo de busca">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:43.297796" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${opcao}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.297168" elapsed="0.066214"/>
+</kw>
+<arg>Por Nome</arg>
+<status status="PASS" start="2026-05-28T11:17:43.296785" elapsed="0.066822"/>
+</kw>
+<kw name="E preenche o campo de busca com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.364342" elapsed="0.035671"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:43.401877" level="INFO">Typing text 'Paracetamol' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.401598" elapsed="0.177364"/>
+</kw>
+<arg>'${valor}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.400271" elapsed="0.178805"/>
+</kw>
+<arg>Paracetamol</arg>
+<status status="PASS" start="2026-05-28T11:17:43.363966" elapsed="0.215200"/>
+</kw>
+<kw name="Quando clicar em Pesquisar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:43.579886" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.579681" elapsed="0.054973"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:17:44.637225" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:17:43.635052" elapsed="1.002673"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:43.579403" elapsed="1.058795"/>
+</kw>
+<kw name="Então deve exibir ao menos um resultado na lista">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:44.671924" level="INFO">${total_text} = 1 medicamento(s) encontrado(s)</msg>
+<var>${total_text}</var>
+<arg>${TOTAL_RESULTADOS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.641042" elapsed="0.030949"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${total_text}</arg>
+<arg>encontrado</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.672241" elapsed="0.000753"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:44.639259" elapsed="0.033842"/>
+</kw>
+<doc>Partição válida: nome que existe no banco retorna lista de medicamentos</doc>
+<status status="PASS" start="2026-05-28T11:17:43.295616" elapsed="1.377724"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir resultados ao buscar por nome parcial" line="30">
+<kw name="Dado que o usuário seleciona o tipo de busca">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:44.674923" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${opcao}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.674662" elapsed="0.039624"/>
+</kw>
+<arg>Por Nome</arg>
+<status status="PASS" start="2026-05-28T11:17:44.674232" elapsed="0.040192"/>
+</kw>
+<kw name="E preenche o campo de busca com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.714991" elapsed="0.026788"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:44.743222" level="INFO">Typing text 'dipiro' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.742878" elapsed="0.047372"/>
+</kw>
+<arg>'${valor}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.741996" elapsed="0.048385"/>
+</kw>
+<arg>dipiro</arg>
+<status status="PASS" start="2026-05-28T11:17:44.714685" elapsed="0.075785"/>
+</kw>
+<kw name="Quando clicar em Pesquisar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:44.791428" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.791172" elapsed="0.049833"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:17:45.843671" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:17:44.841282" elapsed="1.002916"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:44.790823" elapsed="1.053804"/>
+</kw>
+<kw name="Então deve exibir ao menos um resultado na lista">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:45.862154" level="INFO">${total_text} = 1 medicamento(s) encontrado(s)</msg>
+<var>${total_text}</var>
+<arg>${TOTAL_RESULTADOS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.846271" elapsed="0.015934"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${total_text}</arg>
+<arg>encontrado</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.862379" elapsed="0.000371"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:45.845446" elapsed="0.017390"/>
+</kw>
+<doc>Partição válida: parte do nome também deve retornar resultados (RN1)</doc>
+<status status="PASS" start="2026-05-28T11:17:44.673634" elapsed="1.189370"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve exibir mensagem de erro ao buscar nome inexistente" line="37">
+<kw name="Dado que o usuário seleciona o tipo de busca">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:45.864288" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${opcao}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.864065" elapsed="0.034241"/>
+</kw>
+<arg>Por Nome</arg>
+<status status="PASS" start="2026-05-28T11:17:45.863809" elapsed="0.034624"/>
+</kw>
+<kw name="E preenche o campo de busca com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.898953" elapsed="0.029075"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:45.929394" level="INFO">Typing text 'medicamentoQueNaoExiste99' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.929143" elapsed="0.047015"/>
+</kw>
+<arg>'${valor}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.928306" elapsed="0.047998"/>
+</kw>
+<arg>medicamentoQueNaoExiste99</arg>
+<status status="PASS" start="2026-05-28T11:17:45.898666" elapsed="0.077742"/>
+</kw>
+<kw name="Quando clicar em Pesquisar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:45.977265" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:45.977029" elapsed="0.050999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:17:47.029752" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:17:46.028544" elapsed="1.001578"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:45.976718" elapsed="1.053661"/>
+</kw>
+<kw name="Então deve exibir a mensagem de nenhum resultado">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:47.051755" level="INFO">${msg} = Nenhum medicamento encontrado para os critérios informados</msg>
+<var>${msg}</var>
+<arg>${MSG_RESULTADO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.031152" elapsed="0.020664"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>encontrado</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.052002" elapsed="0.000434"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:47.030753" elapsed="0.021790"/>
+</kw>
+<doc>Partição inválida: nome que não existe deve exibir mensagem (RN4)</doc>
+<status status="PASS" start="2026-05-28T11:17:45.863221" elapsed="1.189498"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve exibir resultados ao buscar por substância existente" line="44">
+<kw name="Dado que o usuário seleciona o tipo de busca">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:47.054286" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Substância.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${opcao}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.053766" elapsed="0.171609"/>
+</kw>
+<arg>Por Substância</arg>
+<status status="PASS" start="2026-05-28T11:17:47.053477" elapsed="0.172041"/>
+</kw>
+<kw name="E preenche o campo de busca com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.226267" elapsed="0.021650"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:47.249296" level="INFO">Typing text 'Dipirona' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.249048" elapsed="0.046726"/>
+</kw>
+<arg>'${valor}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.248146" elapsed="0.047815"/>
+</kw>
+<arg>Dipirona</arg>
+<status status="PASS" start="2026-05-28T11:17:47.225929" elapsed="0.070235"/>
+</kw>
+<kw name="Quando clicar em Pesquisar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:47.297575" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.297316" elapsed="0.043771"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:17:48.343009" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:17:47.341332" elapsed="1.002189"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:47.296919" elapsed="1.047030"/>
+</kw>
+<kw name="Então deve exibir ao menos um resultado na lista">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:48.359858" level="INFO">${total_text} = 1 medicamento(s) encontrado(s)</msg>
+<var>${total_text}</var>
+<arg>${TOTAL_RESULTADOS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.345575" elapsed="0.014337"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${total_text}</arg>
+<arg>encontrado</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.360111" elapsed="0.000431"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:48.344812" elapsed="0.015816"/>
+</kw>
+<doc>Partição válida: substância conhecida retorna medicamentos (RF2, HU2)</doc>
+<status status="PASS" start="2026-05-28T11:17:47.052930" elapsed="1.307891"/>
+</test>
+<test id="s1-t5" name="CT05 - Deve exibir mensagem ao buscar sem preencher o campo" line="51">
+<kw name="Dado que o usuário seleciona o tipo de busca">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:48.362291" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${opcao}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.362043" elapsed="0.047051"/>
+</kw>
+<arg>Por Nome</arg>
+<status status="PASS" start="2026-05-28T11:17:48.361653" elapsed="0.047575"/>
+</kw>
+<kw name="E preenche o campo de busca com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.410196" elapsed="0.018537"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${valor}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.429017" elapsed="0.000758"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-28T11:17:48.409484" elapsed="0.020395"/>
+</kw>
+<kw name="Quando clicar em Pesquisar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:48.430629" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.430433" elapsed="0.044112"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:17:49.475850" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:17:48.474765" elapsed="1.001373"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:48.430101" elapsed="1.046313"/>
+</kw>
+<kw name="Então deve exibir mensagem de campo obrigatório">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:17:49.491300" level="INFO">${msg} = Digite algo para pesquisar.</msg>
+<var>${msg}</var>
+<arg>${MSG_RESULTADO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:17:49.477680" elapsed="0.013671"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T11:17:49.491896" level="INFO">Length is 27.</msg>
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T11:17:49.491549" elapsed="0.000399"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:49.476983" elapsed="0.015041"/>
+</kw>
+<doc>Valor limite: campo vazio deve mostrar mensagem de validação</doc>
+<status status="PASS" start="2026-05-28T11:17:48.361070" elapsed="1.131111"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T11:17:49.493145" elapsed="0.137011"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:49.492928" elapsed="0.137525"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:17:38.982006" elapsed="10.648540"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste Busca Medicamento" id="s1" pass="5" fail="0" skip="0">Teste Busca Medicamento</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

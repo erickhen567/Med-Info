@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T11:10:13.520089" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Login Admin" source="/Users/alanagabriela/Downloads/files (1)/teste_login_admin.robot">
+<kw name="Abrir Navegador na Tela de Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:14.541171" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T11:10:14.538340" elapsed="4.100753"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T11:10:18.641131" elapsed="0.377522"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:19.026639" level="INFO">Page title is 'Med Info — Área Administrativa'.</msg>
+<arg>Med Info — Área Administrativa</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.018874" elapsed="0.007898"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:14.515416" elapsed="4.511543"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve realizar login com credenciais válidas" line="27">
+<kw name="Dado que o usuário preenche o email com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.028761" elapsed="0.044659"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:19.075172" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.074924" elapsed="0.220985"/>
+</kw>
+<arg>'${email}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.073669" elapsed="0.222397"/>
+</kw>
+<arg>${EMAIL_VALIDO}</arg>
+<status status="PASS" start="2026-05-28T11:10:19.028326" elapsed="0.267866"/>
+</kw>
+<kw name="E preenche a senha com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.296850" elapsed="0.021796"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:19.320029" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T11:10:19.337937" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.319738" elapsed="0.052159"/>
+</kw>
+<arg>'${senha}' != '${EMPTY}'</arg>
+<arg>Input Password</arg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.318854" elapsed="0.053212"/>
+</kw>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-05-28T11:10:19.296503" elapsed="0.075660"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:19.373093" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.372806" elapsed="0.058800"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:20.934748" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:19.432008" elapsed="1.504146"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:19.372509" elapsed="1.564532"/>
+</kw>
+<kw name="Então o painel administrativo deve ser exibido">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:20.969235" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T11:10:20.941813" elapsed="0.027898"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:20.970441" level="INFO">Verifying element 'id=btnLogout' contains exact text 'Sair'.</msg>
+<arg>${BTN_LOGOUT}</arg>
+<arg>Sair</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-05-28T11:10:20.969981" elapsed="0.019565"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:20.939675" elapsed="0.050013"/>
+</kw>
+<kw name="Fazer Logout" type="TEARDOWN">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:20.990602" level="INFO">Clicking button 'id=btnLogout'.</msg>
+<arg>${BTN_LOGOUT}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:20.990376" elapsed="0.046612"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:21.541587" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.037205" elapsed="0.512939"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:20.990066" elapsed="0.562400"/>
+</kw>
+<doc>Partição válida: credenciais corretas devem exibir o painel admin</doc>
+<status status="PASS" start="2026-05-28T11:10:19.027170" elapsed="2.525750"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir erro ao usar email sem formato válido" line="35">
+<kw name="Dado que o usuário preenche o email com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.556020" elapsed="0.044325"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:21.602909" level="INFO">Typing text 'adminmedinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.602439" elapsed="0.056396"/>
+</kw>
+<arg>'${email}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.600860" elapsed="0.058096"/>
+</kw>
+<arg>adminmedinfo.com</arg>
+<status status="PASS" start="2026-05-28T11:10:21.555569" elapsed="0.103484"/>
+</kw>
+<kw name="E preenche a senha com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.659758" elapsed="0.034902"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:21.696148" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T11:10:21.731536" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.695871" elapsed="0.063155"/>
+</kw>
+<arg>'${senha}' != '${EMPTY}'</arg>
+<arg>Input Password</arg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.694876" elapsed="0.064272"/>
+</kw>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-05-28T11:10:21.659335" elapsed="0.099991"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:21.760236" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.759990" elapsed="0.058345"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:23.323986" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:21.818559" elapsed="1.507044"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:21.759645" elapsed="1.567379"/>
+</kw>
+<kw name="Então deve exibir a mensagem de erro">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:23.354192" level="INFO">${msg} = Email inválido</msg>
+<var>${msg}</var>
+<arg>${MSG_LOGIN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.330040" elapsed="0.024248"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.354619" elapsed="0.001516"/>
+</kw>
+<arg>Email inválido</arg>
+<status status="PASS" start="2026-05-28T11:10:23.328771" elapsed="0.027518"/>
+</kw>
+<doc>Partição inválida: email sem @ deve retornar mensagem de erro</doc>
+<status status="PASS" start="2026-05-28T11:10:21.554295" elapsed="1.802774"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve exibir erro ao usar senha incorreta" line="42">
+<kw name="Dado que o usuário preenche o email com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.359852" elapsed="0.035474"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:23.400201" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.399540" elapsed="0.255602"/>
+</kw>
+<arg>'${email}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.397357" elapsed="0.257946"/>
+</kw>
+<arg>${EMAIL_VALIDO}</arg>
+<status status="PASS" start="2026-05-28T11:10:23.359365" elapsed="0.296037"/>
+</kw>
+<kw name="E preenche a senha com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:23.655928" elapsed="0.503958"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:24.161465" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T11:10:24.193303" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:24.161159" elapsed="0.071329"/>
+</kw>
+<arg>'${senha}' != '${EMPTY}'</arg>
+<arg>Input Password</arg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:24.160185" elapsed="0.076818"/>
+</kw>
+<arg>SenhaErrada999</arg>
+<status status="PASS" start="2026-05-28T11:10:23.655628" elapsed="0.583824"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:24.242008" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:24.241474" elapsed="0.053805"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:25.799342" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:24.295481" elapsed="1.505696"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:24.241038" elapsed="1.561491"/>
+</kw>
+<kw name="Então deve exibir a mensagem de erro">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:25.825993" level="INFO">${msg} = Credenciais inválidas</msg>
+<var>${msg}</var>
+<arg>${MSG_LOGIN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.807416" elapsed="0.018690"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.826348" elapsed="0.000626"/>
+</kw>
+<arg>Credenciais inválidas</arg>
+<status status="PASS" start="2026-05-28T11:10:25.805046" elapsed="0.022025"/>
+</kw>
+<doc>Partição inválida: senha errada deve retornar credenciais inválidas</doc>
+<status status="PASS" start="2026-05-28T11:10:23.357722" elapsed="2.469518"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve exibir erro ao deixar campos vazios" line="49">
+<kw name="Dado que o usuário preenche o email com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.828628" elapsed="0.037354"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${email}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.866299" elapsed="0.000917"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-28T11:10:25.827991" elapsed="0.039336"/>
+</kw>
+<kw name="E preenche a senha com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.868314" elapsed="0.027042"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${senha}' != '${EMPTY}'</arg>
+<arg>Input Password</arg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.895616" elapsed="0.000783"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2026-05-28T11:10:25.867667" elapsed="0.028833"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:25.897147" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.896931" elapsed="0.052543"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:27.452502" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:25.949675" elapsed="1.503550"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:25.896701" elapsed="1.556928"/>
+</kw>
+<kw name="Então deve exibir a mensagem de erro">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:27.471812" level="INFO">${msg} = Preencha email e senha.</msg>
+<var>${msg}</var>
+<arg>${MSG_LOGIN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.455648" elapsed="0.016218"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.472074" elapsed="0.000488"/>
+</kw>
+<arg>Preencha email e senha.</arg>
+<status status="PASS" start="2026-05-28T11:10:27.454476" elapsed="0.018182"/>
+</kw>
+<doc>Partição inválida: envio sem preencher deve mostrar validação</doc>
+<status status="PASS" start="2026-05-28T11:10:25.827484" elapsed="1.645340"/>
+</test>
+<test id="s1-t5" name="CT05 - Deve exibir erro ao usar email inexistente no sistema" line="56">
+<kw name="Dado que o usuário preenche o email com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.473845" elapsed="0.025898"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:27.501784" level="INFO">Typing text 'usuarioInexistente@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.501462" elapsed="0.052704"/>
+</kw>
+<arg>'${email}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.500019" elapsed="0.054395"/>
+</kw>
+<arg>usuarioInexistente@medinfo.com</arg>
+<status status="PASS" start="2026-05-28T11:10:27.473556" elapsed="0.080973"/>
+</kw>
+<kw name="E preenche a senha com">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.555274" elapsed="0.035912"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:27.592507" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T11:10:27.611682" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.592259" elapsed="0.045961"/>
+</kw>
+<arg>'${senha}' != '${EMPTY}'</arg>
+<arg>Input Password</arg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.591388" elapsed="0.046948"/>
+</kw>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-05-28T11:10:27.554825" elapsed="0.083591"/>
+</kw>
+<kw name="Quando clicar em Entrar">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:27.639348" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.639121" elapsed="0.042689"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T11:10:29.183266" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T11:10:27.682031" elapsed="1.501567"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:27.638644" elapsed="1.545416"/>
+</kw>
+<kw name="Então deve exibir a mensagem de erro">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T11:10:29.202382" level="INFO">${msg} = Credenciais inválidas</msg>
+<var>${msg}</var>
+<arg>${MSG_LOGIN}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T11:10:29.186723" elapsed="0.015726"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T11:10:29.202627" elapsed="0.000474"/>
+</kw>
+<arg>Credenciais inválidas</arg>
+<status status="PASS" start="2026-05-28T11:10:29.185249" elapsed="0.017947"/>
+</kw>
+<doc>Partição inválida: email não cadastrado deve retornar credenciais inválidas</doc>
+<status status="PASS" start="2026-05-28T11:10:27.473026" elapsed="1.730483"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T11:10:29.204477" elapsed="0.193270"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:29.204254" elapsed="0.194228"/>
+</kw>
+<status status="PASS" start="2026-05-28T11:10:13.523644" elapsed="15.874912"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste Login Admin" id="s1" pass="5" fail="0" skip="0">Teste Login Admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T18:02:05.022115" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Edicao Medicamento" source="/Users/alanagabriela/Downloads/files (1)/teste_edicao_medicamento.robot">
+<kw name="Abrir Navegador e Fazer Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:05.244933" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T18:02:05.244362" elapsed="2.691930"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T18:02:07.938315" elapsed="0.429697"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:10.371122" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:08.368237" elapsed="2.005711"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:10.380202" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>admin@medinfo.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:10.376497" elapsed="0.212449"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:10.589488" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T18:02:10.610691" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>Admin@123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:10.589185" elapsed="0.056971"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:10.646702" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:10.646413" elapsed="0.053238"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:13.714144" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:10.699851" elapsed="3.016908"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:13.739751" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:02:13.718982" elapsed="0.020897"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:02:05.243647" elapsed="8.496416"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve exibir painel admin com medicamentos cadastrados" line="30">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:13.751378" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:02:13.741166" elapsed="0.010350"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:13.760379" level="INFO">${qtd} = 5</msg>
+<var>${qtd}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:13.751911" elapsed="0.008532"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${qtd} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T18:02:13.760988" elapsed="0.005034"/>
+</kw>
+<doc>Admin autenticado — painel com lista de medicamentos visível</doc>
+<status status="PASS" start="2026-05-28T18:02:13.740396" elapsed="0.026071"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir tela de login ao acessar sem autenticação" line="36">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:13.768668" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T18:02:13.768150" elapsed="1.789397"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:17.578154" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:15.565956" elapsed="2.013076"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:17.608477" level="INFO">Element 'id=telaLogin' is displayed.</msg>
+<arg>${TELA_LOGIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:02:17.580943" elapsed="0.027652"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:17.627953" level="INFO">Element 'id=painelAdmin' exists but is not displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2026-05-28T18:02:17.609007" elapsed="0.019053"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T18:02:17.628328" elapsed="0.080476"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:17.709714" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T18:02:17.709312" elapsed="0.893979"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T18:02:18.607697" elapsed="0.423869"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:21.035522" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:19.032603" elapsed="2.009818"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:21.132296" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>admin@medinfo.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:21.061035" elapsed="0.383199"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:21.446240" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T18:02:21.476891" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>Admin@123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:21.445341" elapsed="0.076776"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:21.522805" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:21.522438" elapsed="0.062192"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:24.589899" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:21.585315" elapsed="3.006310"/>
+</kw>
+<doc>Sem login — tela de login exibida, painel não acessível</doc>
+<status status="PASS" start="2026-05-28T18:02:13.767505" elapsed="10.825974"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve recusar cadastro com data em formato inválido" line="51">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.598712" level="INFO">Typing text 'Teste Edicao' into text field 'id=cadNome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>Teste Edicao</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.597095" elapsed="0.096085"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.693928" level="INFO">Typing text '1956-01-01' into text field 'id=cadData'.</msg>
+<arg>${INPUT_DATA}</arg>
+<arg>1956-01-01</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.693573" elapsed="0.056411"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.750558" level="INFO">Typing text 'Teste' into text field 'id=cadSubstancias'.</msg>
+<arg>${INPUT_SUBSTANCIAS}</arg>
+<arg>Teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.750258" elapsed="0.058444"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.809329" level="INFO">Typing text 'Descrição teste' into text field 'id=cadDescricao'.</msg>
+<arg>${INPUT_DESCRICAO}</arg>
+<arg>Descrição teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.809022" elapsed="0.052174"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.861915" level="INFO">Typing text 'Rótulo teste' into text field 'id=cadRotulo'.</msg>
+<arg>${INPUT_ROTULO}</arg>
+<arg>Rótulo teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.861446" elapsed="0.048764"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.910803" level="INFO">Typing text 'Problema teste' into text field 'id=cadProblemas'.</msg>
+<arg>${INPUT_PROBLEMAS}</arg>
+<arg>Problema teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.910485" elapsed="0.083421"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:24.995005" level="INFO">Clicking button 'id=btnCadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:24.994412" elapsed="0.062227"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:27.059807" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:25.056947" elapsed="2.004991"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.099315" level="INFO">${msg} = Data de criação deve estar no formato DD/MM/AAAA</msg>
+<var>${msg}</var>
+<arg>${MSG_CADASTRO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.070649" elapsed="0.028748"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:02:27.101163" level="INFO">Length is 48.</msg>
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.100033" elapsed="0.001201"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.101472" elapsed="0.048819"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DATA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.150552" elapsed="0.026068"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SUBSTANCIAS}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.176975" elapsed="0.036334"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DESCRICAO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.213579" elapsed="0.018968"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_ROTULO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.232917" elapsed="0.017358"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_PROBLEMAS}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.250520" elapsed="0.018485"/>
+</kw>
+<doc>Data no formato errado — mensagem de erro esperada</doc>
+<status status="PASS" start="2026-05-28T18:02:24.595171" elapsed="2.674093"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve recusar cadastro de medicamento duplicado" line="70">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.270531" level="INFO">Typing text 'Paracetamol 500mg' into text field 'id=cadNome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>Paracetamol 500mg</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.270258" elapsed="0.092105"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.366730" level="INFO">Typing text '01/01/1956' into text field 'id=cadData'.</msg>
+<arg>${INPUT_DATA}</arg>
+<arg>01/01/1956</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.364214" elapsed="0.152065"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.516999" level="INFO">Typing text 'Paracetamol' into text field 'id=cadSubstancias'.</msg>
+<arg>${INPUT_SUBSTANCIAS}</arg>
+<arg>Paracetamol</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.516621" elapsed="0.063093"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.580408" level="INFO">Typing text 'Analgésico' into text field 'id=cadDescricao'.</msg>
+<arg>${INPUT_DESCRICAO}</arg>
+<arg>Analgésico</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.580045" elapsed="0.057324"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.638225" level="INFO">Typing text '1 comprimido a cada 6h' into text field 'id=cadRotulo'.</msg>
+<arg>${INPUT_ROTULO}</arg>
+<arg>1 comprimido a cada 6h</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.637807" elapsed="0.075604"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.714495" level="INFO">Typing text 'Febre' into text field 'id=cadProblemas'.</msg>
+<arg>${INPUT_PROBLEMAS}</arg>
+<arg>Febre</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.714134" elapsed="0.052023"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:27.766719" level="INFO">Clicking button 'id=btnCadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.766424" elapsed="0.046284"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:29.815927" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:27.813050" elapsed="2.005608"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:29.840448" level="INFO">${msg} = Já existe um medicamento com este nome e data de criação</msg>
+<var>${msg}</var>
+<arg>${MSG_CADASTRO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.822272" elapsed="0.018239"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:02:29.841858" level="INFO">Length is 56.</msg>
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.840989" elapsed="0.000939"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.842244" elapsed="0.031758"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DATA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.874515" elapsed="0.027690"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SUBSTANCIAS}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.902678" elapsed="0.029438"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DESCRICAO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.932597" elapsed="0.026524"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_ROTULO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.959737" elapsed="0.025383"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_PROBLEMAS}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:29.985685" elapsed="0.022101"/>
+</kw>
+<doc>Nome e data já existentes — mensagem de duplicado esperada</doc>
+<status status="PASS" start="2026-05-28T18:02:27.269552" elapsed="2.738529"/>
+</test>
+<test id="s1-t5" name="CT05 - Deve cadastrar novo medicamento com dados válidos" line="89">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.017221" level="INFO">${qtd_antes} = 5</msg>
+<var>${qtd_antes}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.009048" elapsed="0.008226"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.017786" level="INFO">Typing text 'Vitamina C 500mg' into text field 'id=cadNome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>Vitamina C 500mg</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.017518" elapsed="0.051981"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.070069" level="INFO">Typing text '01/06/1950' into text field 'id=cadData'.</msg>
+<arg>${INPUT_DATA}</arg>
+<arg>01/06/1950</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.069788" elapsed="0.043735"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.114022" level="INFO">Typing text 'Ácido Ascórbico' into text field 'id=cadSubstancias'.</msg>
+<arg>${INPUT_SUBSTANCIAS}</arg>
+<arg>Ácido Ascórbico</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.113765" elapsed="0.045013"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.159866" level="INFO">Typing text 'Suplemento vitamínico' into text field 'id=cadDescricao'.</msg>
+<arg>${INPUT_DESCRICAO}</arg>
+<arg>Suplemento vitamínico</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.159543" elapsed="0.049094"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.209159" level="INFO">Typing text 'Tomar 1 comprimido ao dia' into text field 'id=cadRotulo'.</msg>
+<arg>${INPUT_ROTULO}</arg>
+<arg>Tomar 1 comprimido ao dia</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.208887" elapsed="0.050659"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.260110" level="INFO">Typing text 'Deficiência de vitamina C' into text field 'id=cadProblemas'.</msg>
+<arg>${INPUT_PROBLEMAS}</arg>
+<arg>Deficiência de vitamina C</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.259846" elapsed="0.047184"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:30.307552" level="INFO">Clicking button 'id=btnCadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.307290" elapsed="0.043394"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:02:32.354777" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:02:30.350931" elapsed="2.006276"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:32.378558" level="INFO">${msg} = Medicamento cadastrado com sucesso!</msg>
+<var>${msg}</var>
+<arg>${MSG_CADASTRO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:32.359747" elapsed="0.018870"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>sucesso</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T18:02:32.379216" elapsed="0.004422"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:02:32.392560" level="INFO">${qtd_depois} = 6</msg>
+<var>${qtd_depois}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:02:32.383824" elapsed="0.008787"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${qtd_depois} &gt; ${qtd_antes}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T18:02:32.392865" elapsed="0.005450"/>
+</kw>
+<doc>Dados corretos — medicamento cadastrado e aparece na lista</doc>
+<status status="PASS" start="2026-05-28T18:02:30.008406" elapsed="2.390332"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T18:02:32.399898" elapsed="0.126452"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:02:32.399625" elapsed="0.127316"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:02:05.024756" elapsed="27.502714"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste Edicao Medicamento" id="s1" pass="5" fail="0" skip="0">Teste Edicao Medicamento</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

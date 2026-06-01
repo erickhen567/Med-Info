@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T17:56:37.442054" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Exclusao Medicamento" source="/Users/alanagabriela/Downloads/files (1)/teste_exclusao_medicamento.robot">
+<kw name="Abrir Navegador e Fazer Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:37.816750" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T17:56:37.816203" elapsed="3.417006"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T17:56:41.238303" elapsed="0.380192"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:43.620394" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:41.618895" elapsed="2.002103"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:43.626732" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>admin@medinfo.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:43.621813" elapsed="0.802281"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:44.424693" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T17:56:44.462887" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>Admin@123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:44.424333" elapsed="0.084273"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:44.509462" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:44.508882" elapsed="0.078852"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:47.602165" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:44.587998" elapsed="3.019632"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:47.634870" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.609526" elapsed="0.025479"/>
+</kw>
+<status status="PASS" start="2026-05-28T17:56:37.814842" elapsed="9.820412"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve excluir medicamento ao confirmar" line="22">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:47.648012" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.636329" elapsed="0.011823"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:47.656991" level="INFO">${qtd_antes} = 4</msg>
+<var>${qtd_antes}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.648465" elapsed="0.008579"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${qtd_antes} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.657291" elapsed="0.003310"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:47.661051" level="INFO">Clicking element 'css=.btn-excluir'.</msg>
+<arg>css=.btn-excluir</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.660839" elapsed="0.138526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:48.802655" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:47.799759" elapsed="1.003052"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:48.840958" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-05-28T17:56:48.831643" elapsed="0.035273"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:50.901118" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:48.868817" elapsed="2.039313"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:50.934063" level="INFO">${qtd_depois} = 3</msg>
+<var>${qtd_depois}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:50.912789" elapsed="0.021339"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${qtd_depois} &lt; ${qtd_antes}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T17:56:50.934494" elapsed="0.001243"/>
+</kw>
+<doc>Admin logado confirma exclusão — removido com sucesso</doc>
+<status status="PASS" start="2026-05-28T17:56:47.635492" elapsed="3.300799"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir tela de login ao acessar sem autenticação" line="34">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:50.937690" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T17:56:50.937354" elapsed="2.669446"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:55.615262" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:53.610015" elapsed="2.007156"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:55.644492" level="INFO">Element 'id=telaLogin' is displayed.</msg>
+<arg>${TELA_LOGIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:56:55.619573" elapsed="0.025129"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T17:56:55.645498" elapsed="0.210070"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:55.857398" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/admin.html'.</msg>
+<arg>${URL_ADMIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T17:56:55.857067" elapsed="1.733265"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T17:56:57.592961" elapsed="0.379332"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:56:59.977575" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:56:57.972542" elapsed="2.007595"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:56:59.983235" level="INFO">Typing text 'admin@medinfo.com' into text field 'id=inputEmail'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>admin@medinfo.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:56:59.981984" elapsed="0.216418"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:00.199138" level="INFO">Typing password into text field 'id=inputSenha'.</msg>
+<msg time="2026-05-28T17:57:00.222995" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>Admin@123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:00.198830" elapsed="0.057006"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:00.256544" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:00.256229" elapsed="0.066333"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:57:03.325442" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:57:00.323078" elapsed="3.003669"/>
+</kw>
+<doc>Sem login — tela de login deve ser exibida</doc>
+<status status="PASS" start="2026-05-28T17:56:50.936652" elapsed="12.391600"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve manter medicamento ao cancelar exclusão" line="48">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:03.348948" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:57:03.331858" elapsed="0.017272"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:03.357880" level="INFO">${qtd_antes} = 3</msg>
+<var>${qtd_antes}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:03.349421" elapsed="0.008509"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:03.358398" level="INFO">Clicking element 'css=.btn-excluir'.</msg>
+<arg>css=.btn-excluir</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:03.358178" elapsed="0.077466"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:57:04.438946" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:57:03.435968" elapsed="1.003451"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:04.440748" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>DISMISS</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-05-28T17:57:04.440100" elapsed="0.008952"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T17:57:05.450807" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T17:57:04.449495" elapsed="1.001822"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:05.467114" level="INFO">${qtd_depois} = 3</msg>
+<var>${qtd_depois}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.452755" elapsed="0.014412"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${qtd_antes}</arg>
+<arg>${qtd_depois}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.467431" elapsed="0.000455"/>
+</kw>
+<doc>Admin cancela exclusão — medicamento permanece na lista</doc>
+<status status="PASS" start="2026-05-28T17:57:03.329215" elapsed="2.138834"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve carregar lista de medicamentos no painel" line="59">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:05.477641" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.468644" elapsed="0.009108"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:05.482721" level="INFO">${qtd} = 3</msg>
+<var>${qtd}</var>
+<arg>css=.med-row</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.477983" elapsed="0.004781"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${qtd} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.482968" elapsed="0.002745"/>
+</kw>
+<doc>Painel admin exibe lista de medicamentos</doc>
+<status status="PASS" start="2026-05-28T17:57:05.468254" elapsed="0.017710"/>
+</test>
+<test id="s1-t5" name="CT05 - Deve exibir botão de excluir para cada medicamento" line="65">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:05.496758" level="INFO">Element 'id=painelAdmin' is displayed.</msg>
+<arg>${PAINEL_ADMIN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.486667" elapsed="0.010209"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-05-28T17:57:05.501984" level="INFO">${btns} = 3</msg>
+<var>${btns}</var>
+<arg>css=.btn-excluir</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.497142" elapsed="0.004889"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${btns} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.502239" elapsed="0.000460"/>
+</kw>
+<doc>Cada item da lista deve ter botão de exclusão</doc>
+<status status="PASS" start="2026-05-28T17:57:05.486223" elapsed="0.016646"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T17:57:05.503761" elapsed="0.077232"/>
+</kw>
+<status status="PASS" start="2026-05-28T17:57:05.503512" elapsed="0.077618"/>
+</kw>
+<status status="PASS" start="2026-05-28T17:56:37.444794" elapsed="28.136379"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste Exclusao Medicamento" id="s1" pass="5" fail="0" skip="0">Teste Exclusao Medicamento</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

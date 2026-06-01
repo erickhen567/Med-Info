@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T18:14:03.641835" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste Fluxo Navegacao" source="/Users/alanagabriela/Downloads/files (1)/teste_fluxo_navegacao.robot">
+<kw name="Abrir Navegador na Tela de Busca" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:03.868032" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5500/index.html'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T18:14:03.867728" elapsed="2.742491"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T18:14:06.630699" elapsed="0.392720"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:07.033193" level="INFO">Page title is 'Med Info — Consulta de Medicamentos'.</msg>
+<arg>Med Info — Consulta de Medicamentos</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.023812" elapsed="0.009524"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:03.867049" elapsed="3.166479"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve completar fluxo completo: busca, detalhes e fechar" line="28">
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:07.037162" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.036574" elapsed="0.111737"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.148540" elapsed="0.036392"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:07.185464" level="INFO">Typing text 'Paracetamol' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.185150" elapsed="0.178694"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:07.364828" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.364455" elapsed="0.052684"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:08.919641" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:07.417377" elapsed="1.502640"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>Paracetamol</arg>
+<status status="PASS" start="2026-05-28T18:14:07.035820" elapsed="1.884633"/>
+</kw>
+<kw name="Quando clicar no primeiro resultado">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:08.922888" level="INFO">Clicking element 'css=#listaResultados .resultado-item:first-child'.</msg>
+<arg>css=#listaResultados .resultado-item:first-child</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:08.922190" elapsed="0.053390"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:09.983614" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:08.976102" elapsed="1.011102"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:08.921262" elapsed="1.067149"/>
+</kw>
+<kw name="Então o modal de detalhes deve ser exibido">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.010859" level="INFO">Element 'id=detalheModal' is displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:09.990588" elapsed="0.020389"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:09.989721" elapsed="0.021365"/>
+</kw>
+<kw name="E clicar no botão fechar modal">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.011893" level="INFO">Clicking button 'id=btnFecharModal'.</msg>
+<arg>${BTN_FECHAR_MODAL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.011665" elapsed="0.055411"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:10.569594" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.067296" elapsed="0.502665"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:10.011353" elapsed="0.559854"/>
+</kw>
+<kw name="Então o modal deve ser fechado">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.588524" level="INFO">Element 'id=detalheModal' exists but is not displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.572872" elapsed="0.015765"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:10.572039" elapsed="0.016710"/>
+</kw>
+<doc>Fluxo completo: buscar, abrir modal, fechar e retornar</doc>
+<status status="PASS" start="2026-05-28T18:14:07.034669" elapsed="3.554278"/>
+</test>
+<test id="s1-t2" name="CT02 - Busca sem resultado não deve abrir modal" line="36">
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.591320" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.590865" elapsed="0.133483"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.724574" elapsed="0.029505"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.754641" level="INFO">Typing text 'MedicamentoInexistente99' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.754307" elapsed="0.054030"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:10.808891" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.808566" elapsed="0.049345"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:12.359271" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:10.858200" elapsed="1.501339"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>MedicamentoInexistente99</arg>
+<status status="PASS" start="2026-05-28T18:14:10.590421" elapsed="1.769407"/>
+</kw>
+<kw name="Então deve exibir a mensagem de nenhum resultado">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:12.383503" level="INFO">${msg} = Nenhum medicamento encontrado para os critérios informados</msg>
+<var>${msg}</var>
+<arg>${MSG_RESULTADO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.361053" elapsed="0.022525"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>encontrado</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.383849" elapsed="0.001161"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:12.360394" elapsed="0.024781"/>
+</kw>
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:12.398154" level="INFO">Element 'id=detalheModal' exists but is not displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.385683" elapsed="0.012597"/>
+</kw>
+<doc>Sem resultado: modal não deve aparecer</doc>
+<status status="PASS" start="2026-05-28T18:14:10.589446" elapsed="1.809112"/>
+</test>
+<test id="s1-t3" name="CT03 - Modal deve permanecer aberto sem ação de fechar" line="42">
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:12.399958" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.399714" elapsed="0.033097"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.433003" elapsed="0.018332"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:12.451826" level="INFO">Typing text 'Amoxicilina' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.451539" elapsed="0.041039"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:12.493028" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.492778" elapsed="0.039681"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:14.033328" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:12.532655" elapsed="1.501628"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>Amoxicilina</arg>
+<status status="PASS" start="2026-05-28T18:14:12.399394" elapsed="1.635436"/>
+</kw>
+<kw name="Quando clicar no primeiro resultado">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:14.038152" level="INFO">Clicking element 'css=#listaResultados .resultado-item:first-child'.</msg>
+<arg>css=#listaResultados .resultado-item:first-child</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:14.037312" elapsed="0.038057"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:15.076483" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:14.075580" elapsed="1.001375"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:14.035992" elapsed="1.041294"/>
+</kw>
+<kw name="Então o modal de detalhes deve ser exibido">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:15.093327" level="INFO">Element 'id=detalheModal' is displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.079046" elapsed="0.014395"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:15.078022" elapsed="0.015529"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:15.102427" level="INFO">Element 'id=detalheModal' is displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.093743" elapsed="0.008789"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2026-05-28T18:14:15.103100" level="INFO">Clicking button 'id=btnFecharModal'.</msg>
+<arg>${BTN_FECHAR_MODAL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.102869" elapsed="0.053293"/>
+</kw>
+<doc>Modal aberto: permanece visível enquanto não fechar</doc>
+<status status="PASS" start="2026-05-28T18:14:12.398859" elapsed="2.757450"/>
+</test>
+<test id="s1-t4" name="CT04 - Modal deve exibir todos os campos obrigatórios" line="50">
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:15.157837" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.157589" elapsed="0.034105"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.191895" elapsed="0.018625"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:15.211074" level="INFO">Typing text 'Metformina' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.210753" elapsed="0.051049"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:15.262255" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.262000" elapsed="0.042186"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:16.805076" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:15.304388" elapsed="1.501357"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>Metformina</arg>
+<status status="PASS" start="2026-05-28T18:14:15.157214" elapsed="1.649107"/>
+</kw>
+<kw name="Quando clicar no primeiro resultado">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:16.810175" level="INFO">Clicking element 'css=#listaResultados .resultado-item:first-child'.</msg>
+<arg>css=#listaResultados .resultado-item:first-child</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:16.809445" elapsed="0.048929"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.860237" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:16.858578" elapsed="1.002366"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:16.807421" elapsed="1.053953"/>
+</kw>
+<kw name="Então o modal de detalhes deve ser exibido">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.878190" level="INFO">Element 'id=detalheModal' is displayed.</msg>
+<arg>${MODAL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.862891" elapsed="0.015417"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:17.862232" elapsed="0.016236"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.893107" level="INFO">${nome} = Metformina 850mg</msg>
+<var>${nome}</var>
+<arg>${MODAL_NOME}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.878677" elapsed="0.014481"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.907090" level="INFO">${sub} = Cloridrato de Metformina</msg>
+<var>${sub}</var>
+<arg>${MODAL_SUBSTANCIAS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.893696" elapsed="0.013468"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.921140" level="INFO">${desc} = Hipoglicemiante oral da classe das biguanidas, primeira linha no tratamento do diabetes tipo 2.</msg>
+<var>${desc}</var>
+<arg>${MODAL_DESCRICAO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.907400" elapsed="0.013801"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.934055" level="INFO">${prob} = Diabetes mellitus tipo 2</msg>
+<var>${prob}</var>
+<arg>${MODAL_PROBLEMAS}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.921454" elapsed="0.012649"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:17.951206" level="INFO">${rotulo} = Tomar com as refeições para reduzir efeitos gastrointestinais. Monitorar glicemia regularmente.</msg>
+<var>${rotulo}</var>
+<arg>${MODAL_ROTULO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.934315" elapsed="0.016985"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.953370" level="INFO">Length is 16.</msg>
+<arg>${nome}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.952141" elapsed="0.001315"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.955674" level="INFO">Length is 24.</msg>
+<arg>${sub}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.955179" elapsed="0.000560"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.956197" level="INFO">Length is 95.</msg>
+<arg>${desc}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.955921" elapsed="0.000332"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.956981" level="INFO">Length is 24.</msg>
+<arg>${prob}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.956449" elapsed="0.000593"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-05-28T18:14:17.957685" level="INFO">Length is 95.</msg>
+<arg>${rotulo}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.957328" elapsed="0.000416"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2026-05-28T18:14:17.958302" level="INFO">Clicking button 'id=btnFecharModal'.</msg>
+<arg>${BTN_FECHAR_MODAL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:17.958062" elapsed="0.044870"/>
+</kw>
+<doc>Campos RN5: nome, substâncias, descrição, problemas e rótulo visíveis</doc>
+<status status="PASS" start="2026-05-28T18:14:15.156617" elapsed="2.846460"/>
+</test>
+<test id="s1-t5" name="CT05 - Deve exibir dados corretos em buscas consecutivas" line="67">
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:18.004504" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:18.004271" elapsed="0.031515"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:18.035994" elapsed="0.023239"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:18.059785" level="INFO">Typing text 'Paracetamol' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:18.059461" elapsed="0.046640"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:18.106635" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:18.106319" elapsed="0.050425"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:19.658672" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:18.156972" elapsed="1.502024"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>Paracetamol</arg>
+<status status="PASS" start="2026-05-28T18:14:18.003956" elapsed="1.655281"/>
+</kw>
+<kw name="Quando clicar no primeiro resultado">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:19.660759" level="INFO">Clicking element 'css=#listaResultados .resultado-item:first-child'.</msg>
+<arg>css=#listaResultados .resultado-item:first-child</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:19.660365" elapsed="0.038066"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:20.700381" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:19.698720" elapsed="1.003698"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:19.659756" elapsed="1.043812"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:20.742482" level="INFO">${nome1} = Paracetamol 500mg</msg>
+<var>${nome1}</var>
+<arg>${MODAL_NOME}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:20.704932" elapsed="0.037630"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${nome1}</arg>
+<arg>Paracetamol</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T18:14:20.743285" elapsed="0.002774"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:20.748725" level="INFO">Clicking button 'id=btnFecharModal'.</msg>
+<arg>${BTN_FECHAR_MODAL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:20.747047" elapsed="0.090704"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:21.341004" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:20.838325" elapsed="0.502923"/>
+</kw>
+<kw name="Dado que o usuário busca por">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:21.342762" level="INFO">Selecting options from selection list 'id=tipoBusca' by label Por Nome.</msg>
+<arg>${SEL_TIPO_BUSCA}</arg>
+<arg>${tipo}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-05-28T18:14:21.342202" elapsed="0.037602"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:21.380006" elapsed="0.020604"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:21.401367" level="INFO">Typing text 'Dipirona' into text field 'id=campoBusca'.</msg>
+<arg>${SEL_CAMPO_BUSCA}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:21.401029" elapsed="0.047876"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:21.449743" level="INFO">Clicking button 'id=btnBuscar'.</msg>
+<arg>${BTN_BUSCAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:21.449469" elapsed="0.044645"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:22.997662" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:21.494325" elapsed="1.507832"/>
+</kw>
+<arg>Por Nome</arg>
+<arg>Dipirona</arg>
+<status status="PASS" start="2026-05-28T18:14:21.341737" elapsed="1.664114"/>
+</kw>
+<kw name="Quando clicar no primeiro resultado">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:23.018396" level="INFO">Clicking element 'css=#listaResultados .resultado-item:first-child'.</msg>
+<arg>css=#listaResultados .resultado-item:first-child</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:23.017456" elapsed="0.066288"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T18:14:24.086659" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T18:14:23.084320" elapsed="1.002749"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:23.016027" elapsed="1.071464"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T18:14:24.103825" level="INFO">${nome2} = Dipirona Monoidratada 500mg</msg>
+<var>${nome2}</var>
+<arg>${MODAL_NOME}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:24.088036" elapsed="0.015897"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${nome2}</arg>
+<arg>Dipirona</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-05-28T18:14:24.104224" elapsed="0.000428"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2026-05-28T18:14:24.105113" level="INFO">Clicking button 'id=btnFecharModal'.</msg>
+<arg>${BTN_FECHAR_MODAL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T18:14:24.104909" elapsed="0.057271"/>
+</kw>
+<doc>Duas buscas consecutivas exibem dados corretos de cada medicamento</doc>
+<status status="PASS" start="2026-05-28T18:14:18.003328" elapsed="6.159005"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T18:14:24.163582" elapsed="0.233447"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:24.163293" elapsed="0.235171"/>
+</kw>
+<status status="PASS" start="2026-05-28T18:14:03.643358" elapsed="20.755364"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste Fluxo Navegacao" id="s1" pass="5" fail="0" skip="0">Teste Fluxo Navegacao</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
